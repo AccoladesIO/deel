@@ -35,7 +35,7 @@ const home = () => {
                     <h2 className='text-base w-full text-left'>Notification</h2> <hr />
                     <h1 className='w-full text-center p-3 text-3xl z-10'>Nothing to see here</h1>
                     <div className='w-full sm:w-[500px] mx-auto relative h-[400px]'>
-                        <Image layout='fill' src={`https://cdn.dribbble.com/users/37624/screenshots/3366123/media/44764f63a561425448da091ab5e62539.jpg?resize=800x600&vertical=center`} />
+                        <Image layout='fill' src={`https://cdn.dribbble.com/users/37624/screenshots/3366123/media/44764f63a561425448da091ab5e62539.jpg?resize=800x600&vertical=center`} alt=' ' />
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ const home = () => {
 
                     <h1 className='w-full text-center p-3 text-3xl z-10'>Nothing to see here</h1>
                     <div className='w-full sm:w-[500px] mx-auto relative h-[400px]'>
-                        <Image layout='fill' src={`https://cdn.dribbble.com/users/237814/screenshots/6801457/untitled-1.gif`} />
+                        <Image layout='fill' src={`https://cdn.dribbble.com/users/237814/screenshots/6801457/untitled-1.gif`} alt=' ' />
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@ const home = () => {
 
                     <h1 className='w-full text-center p-3 text-3xl z-10'>Files you shared would appear here</h1>
                     <div className='w-full sm:w-[500px] mx-auto relative h-[400px]'>
-                        <Image layout='fill' src={`https://cdn.dribbble.com/users/21546/screenshots/2257867/media/6344a017e2d46f140239c1a235cba25d.gif`} />
+                        <Image layout='fill' src={`https://cdn.dribbble.com/users/21546/screenshots/2257867/media/6344a017e2d46f140239c1a235cba25d.gif`} alt=' ' />
                     </div>
                 </div>
             </div>
