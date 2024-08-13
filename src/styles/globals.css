@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  font-family: 'Raleway', sans-serif;
+}
+
+.custom-img {
+  background: radial-gradient(circle, #4b0082, #7003be, #800080);
+}
+
+.outlined-text {
+  color: white;
+  /* Color of the text fill */
+  text-shadow:
+    -1px -1px 0 #000,
+    /* Top left */
+    1px -1px 0 #000,
+    /* Top right */
+    -1px 1px 0 #000,
+    /* Bottom left */
+    1px 1px 0 #000;
+  /* Bottom right */
+  font-weight: bold;
+  /* Optional: Make text bold for a stronger outline effect */
+}
