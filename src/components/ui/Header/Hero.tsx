@@ -25,7 +25,11 @@ const Hero = () => {
                         Start free trial
                     </button>
                 </SignedOut>
-                <button className='px-8 py-2  border border-blue-500 hover:bg-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}><SignedIn>Go to Dashboard</SignedIn></button>
+                <SignedIn>
+                    <button className='px-8 py-2  border border-blue-500 hover:bg-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}>
+                        Go to Dashboard
+                    </button>
+                </SignedIn>
             </div>
         </div>
     )
