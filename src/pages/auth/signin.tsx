@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/legacy/image'
 import { Logo } from '@/components/icons/Icons'
 import { useRouter } from 'next/router'
-import SignInPage from '../sign-in/[[...index]]'
+// import SignInPage from '../sign-in/[[...index]]'
 // import { SignIn } from '@clerk/nextjs'
 
 const Signin = () => {
@@ -22,7 +22,7 @@ const Signin = () => {
             <div className='p-5 text-blue-700 z-[2] max-w-[800px]'>
                 <h2 className='text-5xl font-bold'>Simplify Your File Sharing — Anytime, Anywhere
                 </h2>
-                <SignInPage />
+                {/* <SignInPage /> */}
             </div>
         </div>
     )
