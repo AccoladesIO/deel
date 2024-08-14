@@ -1,3 +1,4 @@
+import { SignedIn, UserButton } from '@clerk/nextjs';
 import Link from 'next/link'
 import React from 'react'
 import { RxHome, RxFile, RxShare1, RxPerson, RxUpload } from "react-icons/rx";
@@ -28,12 +29,6 @@ const Bottomnav = ({ active }: { active: string }) => {
             href: "/shared/",
             icon: <RxShare1 />
         },
-        {
-            id: 5,
-            name: "Profile",
-            href: "/profile/",
-            icon: <RxPerson />
-        },
     ]
 
 
@@ -49,6 +44,9 @@ const Bottomnav = ({ active }: { active: string }) => {
                     </Link>
                 </div>
             ))}
+            <SignedIn>
+                <UserButton />
+            </SignedIn>
         </div>
     )
 }

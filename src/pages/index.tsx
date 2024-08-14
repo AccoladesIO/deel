@@ -5,12 +5,9 @@ import Image from "next/legacy/image";
 
 export default function Home() {
   return (
-    <main className="max-w-[1440px] w-full mx-auto">
+    <main className="max-w-[1440px] w-full mx-auto max-h-screen">
       <Navbar />
       <Hero />
-      <div className=' p-4  my-8 rounded-lg w-full h-[600px] relative'>
-        <Image layout='fill' objectFit='cover' src="" alt='' />
-      </div>
     </main>
   )
 }

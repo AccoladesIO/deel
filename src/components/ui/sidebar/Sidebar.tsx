@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { RxHome, RxFile, RxShare1, RxUpload, RxPerson } from "react-icons/rx";
 import { GrUpgrade } from "react-icons/gr";
+import { SignedIn, UserButton } from '@clerk/nextjs';
 
 
 
@@ -55,10 +56,12 @@ const Sidebar = ({ active }: { active: string }) => {
                     Upgrade
                 </Link>
                 <Link href="/profile/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Profile' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}`}>
-                    <RxPerson />
-                    Profile
+                    {/* <RxPerson /> */}
+                    {/* <UserButton afterSwitchSessionUrl='/' /> */}
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
                 </Link>
-
             </div>
         </div>
     )

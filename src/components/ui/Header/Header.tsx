@@ -2,8 +2,14 @@ import React from 'react'
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiSearch } from 'react-icons/ci'
 import { Logo } from '@/components/icons/Icons';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+    const route = useRouter()
+
+    const handleNavigation = () => {
+        route.push('/notifications/')
+    }
     return (
         <div className='w-full flex items-center justify-between p-4 gap-4'>
             <div className='flex sm:hidden items-center justify-start'>
@@ -13,7 +19,7 @@ const Header = () => {
             <div className='w-full flex items-center justify-start border border-blue-300 p-3 rounded-3xl'>
                 <CiSearch />
             </div>
-            <div className='p-3'>
+            <div className='p-3' onClick={handleNavigation}>
                 <IoIosNotificationsOutline size={20} />
             </div>
         </div>

@@ -1,13 +1,14 @@
 import React from 'react'
 import Image from 'next/legacy/image'
 import { useRouter } from 'next/router'
+import { SignedIn } from '@clerk/nextjs'
 
 
 const Hero = () => {
     const route = useRouter()
 
     const handleRoute = () => {
-        route.push('/auth/')
+        route.push('/home/')
     }
 
     return (
@@ -19,7 +20,7 @@ const Hero = () => {
                 <h2 className='text-5xl font-bold'>Simplify Your File Sharing — Anytime, Anywhere
                 </h2>
                 <p className='py-5 text-xl'>Effortlessly manage your documents, photos, and videos with our intuitive file-sharing app. Whether you&apos;re working solo or collaborating with a team, stay organized and productive with seamless access to your files on any device.</p>
-                <button className='px-8 py-2  border border-blue-500 hover:bg-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}>Start free trial</button>
+                <button className='px-8 py-2  border border-blue-500 hover:bg-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}>Start free trial <SignedIn>Go to Dashboard</SignedIn></button>
             </div>
         </div>
     )

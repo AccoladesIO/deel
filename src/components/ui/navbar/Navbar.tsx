@@ -2,6 +2,7 @@ import { Logo } from '@/components/icons/Icons'
 import React, { useContext } from 'react'
 import { useRouter } from 'next/router'
 import { Context } from '../../../../context/context'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 
 
 
@@ -9,7 +10,7 @@ const Navbar = () => {
     const route = useRouter()
 
     const handleRoute = () => (
-        route.push('/auth/')
+        route.push('/auth/signin')
     )
     return (
         <nav className='w-full flex items-center justify-between p-3 '>
@@ -19,9 +20,15 @@ const Navbar = () => {
             </div>
 
             <div className='w-full flex justify-end'>
-                <button className='px-[16px] outline-none border border-blue-500 py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}>Get started</button>
+                <SignedOut>
+                    <button className='px-[16px] outline-none border border-blue-500 py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' >
+                        <SignInButton />
+                    </button>
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
-
         </nav>
     )
 }
