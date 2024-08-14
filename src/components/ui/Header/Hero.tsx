@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/legacy/image'
 import { useRouter } from 'next/router'
-import { SignedIn } from '@clerk/nextjs'
+import { SignedIn, SignedOut } from '@clerk/nextjs'
 
 
 const Hero = () => {
@@ -20,7 +20,12 @@ const Hero = () => {
                 <h2 className='text-5xl font-bold'>Simplify Your File Sharing — Anytime, Anywhere
                 </h2>
                 <p className='py-5 text-xl'>Effortlessly manage your documents, photos, and videos with our intuitive file-sharing app. Whether you&apos;re working solo or collaborating with a team, stay organized and productive with seamless access to your files on any device.</p>
-                <button className='px-8 py-2  border border-blue-500 hover:bg-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}>Start free trial <SignedIn>Go to Dashboard</SignedIn></button>
+                <SignedOut>
+                    <button className='px-[16px] outline-none border border-blue-500 py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' >
+                        Start free trial
+                    </button>
+                </SignedOut>
+                <button className='px-8 py-2  border border-blue-500 hover:bg-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}><SignedIn>Go to Dashboard</SignedIn></button>
             </div>
         </div>
     )
