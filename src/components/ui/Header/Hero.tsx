@@ -21,7 +21,7 @@ const Hero = () => {
                 </h2>
                 <p className='py-5 text-xl'>Effortlessly manage your documents, photos, and videos with our intuitive file-sharing app. Whether you&apos;re working solo or collaborating with a team, stay organized and productive with seamless access to your files on any device.</p>
                 <SignedOut>
-                    <button className='px-[16px] outline-none border border-blue-500 py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' >
+                    <button className='px-[16px] outline-none border border-blue-500 py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' onClick={handleRoute}>
                         Start free trial
                     </button>
                 </SignedOut>
