@@ -25,27 +25,35 @@ const ContextProvider = ({ children }) => {
         file: "",
     });
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!customData.file) {
+            setError('Important! Add at least 1 file.');
+
+            // Clear the error after 3 seconds
+            setTimeout(() => {
+                setError('');
+            }, 3000);
+
+            return; // Exit early if the validation fails
+        }
+
         try {
-            if (!customData.file) {
-                setTimeout(() => {
-                    setError('Important! Add at least 1 file.');
-                }, 3000);
-                throw new Error('Important! Add at least 1 file.')
-            } else {
-                console.log("this data is ready", customData);
-            }
-            // add data to db
-        } catch (error) {
-            console.log(error);
-        } finally {
+            console.log("this data is ready", customData);
+            // add data to db here (e.g., with an async function)
+
+            // Reset form only after successful submission
             setCustomData({
                 email: "",
                 file: "",
             });
+        } catch (error) {
+            console.log(error);
         }
-    }
+    };
+
     const [count, setCount] = useState(2);
 
     return (
