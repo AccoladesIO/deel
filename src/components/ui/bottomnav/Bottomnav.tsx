@@ -35,7 +35,7 @@ const Bottomnav = ({ active }: { active: string }) => {
     return (
         <div className='w-full fixed bottom-0 left-0 sm:hidden flex items-center justify-between p-3 bg-white'>
             {sideLink.map((_link, i) => (
-                <div key={_link.id + _link.name + i} className={`w-full rounded-2xl transition-all duration-700 px-4 py-2 ${active === _link.name ? 'bg-blue-200 text-blue-800' : "bg-white text-black"} hover:bg-slate-300`}>
+                <div key={_link.id + _link.name + i} className={`w-full rounded-2xl transition-all duration-700 px-4 py-2 ${active === _link.name ? 'bg-blue-200 text-blue-800' : "bg-white text-black"}`}>
                     <Link href={_link.href} className='w-full flex items-center justify-center gap-2'>
                         {_link.icon}
                         <span className={`${active === _link.name ? 'inline-block font-bold' : "hidden"}`}>
