@@ -54,7 +54,7 @@ const home = () => {
                     </div>
                 </div>
 
-                {/* shared */}
+                {/* shared  */}
                 <div className='w=full p-4'>
                     <h2 className='text-base w-full text-left text-blue-700 font-bold'>Shared</h2> <hr />
 

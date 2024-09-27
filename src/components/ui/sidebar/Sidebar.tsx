@@ -6,7 +6,6 @@ import { GrUpgrade } from "react-icons/gr";
 import { SignedIn, UserButton } from '@clerk/nextjs';
 
 
-
 const Sidebar = ({ active }: { active: string }) => {
 
     const sideLink = [
