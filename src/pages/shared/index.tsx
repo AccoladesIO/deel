@@ -21,15 +21,16 @@ const Shared = () => {
             <div className='w-full p-2 text-bold'> </div>
           </div>
           {
-            favourites.map((file: { id: any; data: { fileName: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; fileType: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; fileSize: number } }, index: any) => {
+            favourites.map((file: { id: any; data: { fileName: string; fileType: string; fileSize: number } }, index: any) => {
               return (
                 <div key={file.id + index} className='p-2 my-1 w-full' style={{ backgroundColor: index % 2 === 0 ? '#f0f0f0' : '#90caf9', }}>
-                  <div className='flex items-center justify-between'>
-                    <div className='w-full p-2 text-bold'>{file.data.fileName}</div>
-                    <div className='w-full p-2 text-bold'>{file.data.fileType}</div>
-                    <div className='w-full p-2 text-bold'>{formatFileSize(file.data.fileSize)}</div>
+                  <div className='flex items-center justify-between cursor-pointer'>
+                    <div className='w-full p-2 text-bold'>
+                      {file?.data?.fileName?.length > 10 ? `${(file.data.fileName as string).substring(0, 10)}...` : file.data.fileName}
+                    </div>
+                    <div className='w-full p-2 text-bold'>{file?.data?.fileType}</div>
+                    <div className='w-full p-2 text-bold'>{formatFileSize(file?.data?.fileSize)}</div>
                     <div className='w-full p-2 text-bold' onClick={() => deleteBookmark(index)}>Remove</div>
-
                   </div>
                 </div>
               )
