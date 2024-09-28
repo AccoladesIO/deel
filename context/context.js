@@ -148,6 +148,7 @@ const ContextProvider = ({ children }) => {
             setFavourites(updatedFavourites);
             localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
             console.log(updatedFavourites);
+            alert('File has been added to bookmark')
         } else {
             console.log('Item already exists in favourites');
         }
