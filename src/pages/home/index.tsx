@@ -1,12 +1,14 @@
 import Layout from '@/components/ui/layout/Layout'
-import React from 'react'
+import React, { useContext } from 'react'
 import { RxStar, RxUpload } from 'react-icons/rx'
 import { CgFolderAdd } from "react-icons/cg";
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+import { Context } from '../../../context/context';
 
 
-const home = () => {
+const Home = () => {
+    const { files, favourites } = useContext(Context)
     return (
         <Layout active='Home'>
             <div className='overflow-y-scroll w-full h-[90vh]'>
@@ -19,7 +21,7 @@ const home = () => {
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-blue-500 text-white gap-2'>
                         <RxUpload size={20} />
                         <Link href='/upload/'>
-                            Upload
+                            <span className='text-2xl font-bold'> {files?.length} {' '} </span>  Upload
                         </Link>
                     </div>
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2'>
@@ -28,8 +30,8 @@ const home = () => {
                     </div>
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-purple-200 text-black gap-2'>
                         <RxStar size={20} />
-                        <Link href={`/starred/`}>
-                            Star
+                        <Link href={`/shared/`}>
+                            <span className='text-2xl font-bold'>{favourites?.length}{' '}</span>Starred
                         </Link>
                     </div>
                 </div>
@@ -68,4 +70,4 @@ const home = () => {
     )
 }
 
-export default home
+export default Home

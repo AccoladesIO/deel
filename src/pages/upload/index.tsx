@@ -4,23 +4,29 @@ import { CiCloud, CiCloudOn } from 'react-icons/ci';
 import { Context } from '../../../context/context';
 import { useUser } from '@clerk/nextjs';
 import Image from 'next/legacy/image';
+import { useRouter } from 'next/router';
+import { formatFileSize } from '@/constants/constants';
 
 
 const Upload = () => {
     const { user } = useUser()
+    const route = useRouter()
+    const handleBack = () => {
+        route.back()
+    }
     // console.log(user)
     const [files, setFiles] = useState(true)
-    const { formatFileSize, customData, setCustomData, handleSubmit, error, progress } = useContext(Context)
+    const { customData, setCustomData, handleSubmit, error, progress } = useContext(Context)
     return (
         <Layout active='Upload'>
             <div className='w-full p-4'>
                 <h1 className='w-full text-left text-xl text-blue-700'>| Upload</h1>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-2 p-4">
-                {progress === 100 ? 
+                {progress === 100 ?
                     (
                         <div className='w=full p-4'>
-                            <h2 className='text-base w-full text-left text-blue-700 font-bold'></h2> <hr />
+                            <h2 className='text-base w-full text-left text-blue-700 font-bold' onClick={handleBack}>Back</h2> <hr />
                             <h1 className='w-full text-center p-3 text-3xl z-10'>Hurray!! File upload successful</h1>
                             <div className='w-full sm:w-[500px] mx-auto relative h-[400px]'>
                                 <Image layout='fill' src={`https://cdn.dribbble.com/users/21546/screenshots/2257867/media/2b85d36541d86816f3f23f0dda65c657.gif`} alt=' ' />
@@ -67,20 +73,21 @@ const Upload = () => {
                                         const files = e?.target?.files;
                                         console.log(files)
                                         if (files && files.length > 0) {
-                                            setCustomData({ email: user?.primaryEmailAddress?.emailAddress, file: files[0] });
+                                            setCustomData({ name: user?.fullName, email: user?.primaryEmailAddress?.emailAddress, file: files[0] });
                                             setFiles(false)
                                         }
                                     }}
                                 />
-                                {progress > 0 &&
+                                {progress > 0 ?
                                     (
                                         <div className='w-[200px] mx-auto my-2 bg-gray-400 h-3 rounded-3xl text-center'>
                                             <div className={`h-3 bg-blue-700 rounded-3xl`} style={{ width: `${progress}%` }} >
                                             </div>
                                             <p className='text-black font-semibold'>{Number(progress).toFixed(0)}%</p>
                                         </div>
-                                    )
+                                    ) : null
                                 }
+
                                 <div className="w-full text-center flex items-center justify-center py-4">
                                     <input
                                         type="submit"
@@ -89,10 +96,11 @@ const Upload = () => {
                                         className="px-[16px] outline-none border border-blue-500 disabled:bg-slate-400 disabled:hover:text-black py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all rounded-lg font-bold"
                                     />
                                 </div>
+
                             </label>
                         </form>
-                )    
-            }
+                    )
+                }
             </div>
         </Layout>
     )
