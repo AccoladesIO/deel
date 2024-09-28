@@ -161,6 +161,8 @@ const ContextProvider = ({ children }) => {
         bookmarks.splice(index, 1);
         localStorage.setItem('favourites', JSON.stringify(bookmarks));
         setFavourites(bookmarks);
+        alert('File has been removed from bookmark')
+
     };
 
 
