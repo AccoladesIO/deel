@@ -23,7 +23,7 @@ const Files = () => {
                 <div className='flex items-center justify-between'>
                     <div className='w-full p-2 text-bold'>File name</div>
                     <div className='w-full p-2 text-bold hidden sm:block'>File Type</div>
-                    <div className='w-full p-2 text-bold hidden sm:block'>File Size</div>
+                    <div className='w-full p-2 text-bold'>File Size</div>
                     <div className='w-full p-2 text-bold'>Location</div>
                 </div>
                 {
@@ -34,7 +34,7 @@ const Files = () => {
                                     <div className='w-full p-2 text-bold'>
                                         {file?.data?.fileName?.length > 10 ? `${(file.data.fileName as string).substring(0, 10)}...` : file.data.fileName}
                                     </div>
-                                    <div className='w-full p-2 text-bold'>{file.data.fileType}</div>
+                                    <div className='w-full p-2 text-bold hidden sm:block'>{file.data.fileType}</div>
                                     <div className='w-full p-2 text-bold'>{formatFileSize(file.data.fileSize)}</div>
                                     <div className='w-full p-2 text-bold' onClick={() => handleAddToFavourite(file)}>Bookmark</div>
                                 </div>
