@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { Context } from '../../../context/context'
 import { formatFileSize } from '@/constants/constants'
 
-const shared = () => {
+const Shared = () => {
   const { favourites, deleteBookmark } = useContext(Context)
   return (
     <Layout active='Shared'>
@@ -41,4 +41,4 @@ const shared = () => {
   )
 }
 
-export default shared
+export default Shared

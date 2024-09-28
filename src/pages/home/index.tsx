@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Context } from '../../../context/context';
 
 
-const home = () => {
+const Home = () => {
     const { files, favourites } = useContext(Context)
     return (
         <Layout active='Home'>
@@ -70,4 +70,4 @@ const home = () => {
     )
 }
 
-export default home
+export default Home
