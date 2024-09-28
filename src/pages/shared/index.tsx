@@ -16,7 +16,7 @@ const Shared = () => {
           <h1 className='w-full text-center p-3 text-3xl z-10'>Favourite</h1>
           <div className='flex items-center justify-between'>
             <div className='w-full p-2 text-bold'>File name</div>
-            <div className='w-full p-2 text-bold'>File Type</div>
+            <div className='w-full p-2 text-bold hidden sm:block'>File Type</div>
             <div className='w-full p-2 text-bold'>File Size</div>
             <div className='w-full p-2 text-bold'> </div>
           </div>
@@ -28,7 +28,7 @@ const Shared = () => {
                     <div className='w-full p-2 text-bold'>
                       {file?.data?.fileName?.length > 10 ? `${(file.data.fileName as string).substring(0, 10)}...` : file.data.fileName}
                     </div>
-                    <div className='w-full p-2 text-bold'>{file?.data?.fileType}</div>
+                    <div className='w-full p-2 text-bold hidden sm:block'>{file?.data?.fileType}</div>
                     <div className='w-full p-2 text-bold'>{formatFileSize(file?.data?.fileSize)}</div>
                     <div className='w-full p-2 text-bold' onClick={() => deleteBookmark(index)}>Remove</div>
                   </div>
