@@ -5,10 +5,13 @@ import { CgFolderAdd } from "react-icons/cg";
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { Context } from '../../../context/context';
+import { useUser } from '@clerk/nextjs';
 
 
 const Home = () => {
     const { files, favourites } = useContext(Context)
+    const { user } = useUser()
+    const filteredFiles = files.filter((file: { data: { email: string | undefined } }) => file.data.email === user?.primaryEmailAddress?.emailAddress)
     return (
         <Layout active='Home'>
             <div className='overflow-y-scroll w-full h-[90vh]'>
@@ -21,7 +24,7 @@ const Home = () => {
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-blue-500 text-white gap-2'>
                         <RxUpload size={20} />
                         <Link href='/upload/'>
-                            <span className='text-2xl font-bold'> {files?.length} {' '} </span>  Upload
+                            <span className='text-2xl font-bold'> {filteredFiles?.length} {' '} </span>  Upload
                         </Link>
                     </div>
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2'>
