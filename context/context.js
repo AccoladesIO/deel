@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { app } from '../db/firebase';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, setDoc, doc, getDocs } from "firebase/firestore"; // Updated Firestore import
+import { getFirestore, collection, setDoc, doc, getDocs, deleteDoc } from "firebase/firestore"; // Updated Firestore import
 import { generateRandomString } from "@/constants/constants";
 
 const Context = createContext();
@@ -53,6 +53,9 @@ const ContextProvider = ({ children }) => {
         }
     }
 
+
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!customData.file) {
@@ -87,7 +90,7 @@ const ContextProvider = ({ children }) => {
                 }
                 setProgress(progress);
 
-                console.log(`Upload is ${progress}% done`);
+                // console.log(`Upload is ${progress}% done`);
 
                 if (snapshot.state === 'error') {
                     console.error('Upload failed:', snapshot.error);
@@ -147,7 +150,7 @@ const ContextProvider = ({ children }) => {
             const updatedFavourites = [...favourites, item];
             setFavourites(updatedFavourites);
             localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
-            console.log(updatedFavourites);
+            // console.log(updatedFavourites);
             alert('File has been added to bookmark')
         } else {
             console.log('Item already exists in favourites');
@@ -166,7 +169,7 @@ const ContextProvider = ({ children }) => {
     };
 
 
-    console.log(favourites)
+    // console.log(favourites)
     const [count, setCount] = useState(2);
 
     return (

@@ -4,6 +4,7 @@ import React from 'react'
 import { RxHome, RxFile, RxShare1, RxUpload, RxPerson } from "react-icons/rx";
 import { GrUpgrade } from "react-icons/gr";
 import { SignedIn, UserButton } from '@clerk/nextjs';
+import { BiStar } from 'react-icons/bi';
 
 
 const Sidebar = ({ active }: { active: string }) => {
@@ -23,9 +24,9 @@ const Sidebar = ({ active }: { active: string }) => {
         },
         {
             id: 3,
-            name: "Shared",
-            href: "/shared/",
-            icon: <RxShare1 />
+            name: "Starred",
+            href: "/starred/",
+            icon: <BiStar />
         }
     ]
 

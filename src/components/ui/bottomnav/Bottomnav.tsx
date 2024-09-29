@@ -1,6 +1,7 @@
 import { SignedIn, UserButton } from '@clerk/nextjs';
 import Link from 'next/link'
 import React from 'react'
+import { BiStar } from 'react-icons/bi';
 import { RxHome, RxFile, RxShare1, RxPerson, RxUpload } from "react-icons/rx";
 
 const Bottomnav = ({ active }: { active: string }) => {
@@ -25,9 +26,9 @@ const Bottomnav = ({ active }: { active: string }) => {
         },
         {
             id: 4,
-            name: "Shared",
-            href: "/shared/",
-            icon: <RxShare1 />
+            name: "Starred",
+            href: "/starred/",
+            icon: <BiStar />
         },
     ]
 
@@ -38,9 +39,8 @@ const Bottomnav = ({ active }: { active: string }) => {
                 <div key={_link.id + _link.name + i} className={`w-full rounded-2xl transition-all duration-700 px-4 py-2 ${active === _link.name ? 'bg-blue-200 text-blue-800' : "bg-white text-black"}`}>
                     <Link href={_link.href} className='w-full flex items-center justify-center gap-2'>
                         {_link.icon}
-                        <span className={`${active === _link.name ? 'inline-block font-bold' : "hidden"}`}>
-                            {_link.name}
-                        </span>
+                        <span className={`${active === _link.name ? 'inline font-bold' : "hidden"}`}>
+                            {_link.name}</span>
                     </Link>
                 </div>
             ))}
