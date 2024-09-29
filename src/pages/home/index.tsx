@@ -29,11 +29,11 @@ const Home = () => {
                     </div>
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2'>
                         <CgFolderAdd size={20} />
-                        Create
+                        <span className='text-2xl font-bold'></span>  Create
                     </div>
                     <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-purple-200 text-black gap-2'>
                         <RxStar size={20} />
-                        <Link href={`/shared/`}>
+                        <Link href={`/starred/`}>
                             <span className='text-2xl font-bold'>{favourites?.length}{' '}</span>Starred
                         </Link>
                     </div>

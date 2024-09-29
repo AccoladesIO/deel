@@ -9,7 +9,7 @@ import { app } from '../../../db/firebase'
 
 const Slug = () => {
     const db = getFirestore(app)
-    const { files } = useContext(Context)
+    const { files, deleteBookmark } = useContext(Context)
     const { user } = useUser()
     const router = useRouter()
     const { slug } = router.query
@@ -26,6 +26,7 @@ const Slug = () => {
             await deleteDoc(docRef);
             alert("Document deleted successfully");
             router.push('/files/')
+            deleteBookmark(docId)
         } catch (error) {
             console.log(error)
         }
