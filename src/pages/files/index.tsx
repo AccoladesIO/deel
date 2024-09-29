@@ -34,8 +34,8 @@ const Files = () => {
                         {
                             filteredFiles.map((file: { id: any; data: { fileName: string; fileType: string; fileSize: number } }, index: any) => {
                                 return (
-                                    <Link passHref href={`/files/${file.id}`}>
-                                        <div key={file.id + index} className='p-2 my-1 w-full' style={{ backgroundColor: index % 2 === 0 ? '#f0f0f0' : '#90caf9' }}>
+                                    <Link passHref href={`/files/${file.id}`} key={file.id + index}>
+                                        <div className='p-2 my-1 w-full' style={{ backgroundColor: index % 2 === 0 ? '#f0f0f0' : '#90caf9' }}>
                                             <div className='flex items-center justify-between cursor-pointer'>
                                                 <div className='w-full p-2 text-bold'>
                                                     {file?.data?.fileName?.length > 10 ? `${(file.data.fileName as string).substring(0, 10)}...` : file.data.fileName}
