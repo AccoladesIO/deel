@@ -36,8 +36,8 @@ const Upload = () => {
                     (
                         <form onSubmit={handleSubmit} className='w-full'>
                             <label className="flex flex-col items-center justify-center text-sm text-[#0f0f0f] cursor-pointer sm:w-[70%] w-full mx-auto  h-[400px] border border-dashed border-spacing-2 border-blue-500 p-3 outline-none focus:border-[#93bde0] font-light">
-                                <div className="w-16 h-16 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center">
-                                    <CiCloud size={20} />
+                                <div className="w-24 h-24 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center relative">
+                                    <Image className="has-mask h-36 object-center" layout='fill' objectFit='cover' src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image" />
                                 </div>
                                 <div className="text-blue-700 font-light text-base">
                                     {customData.file ? (
@@ -93,7 +93,7 @@ const Upload = () => {
                                         type="submit"
                                         value="Upload"
                                         disabled={files}
-                                        className="px-[16px] outline-none border border-blue-500 disabled:bg-slate-400 disabled:hover:text-black py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all rounded-lg font-bold"
+                                        className="px-[16px] outline-none border border-blue-500 disabled:bg-slate-400 disabled:text-slate-200 disabled:border-none py-3 text-blue-700 hover:text-white ease-in-out duration-500 transition-all rounded-lg font-bold"
                                     />
                                 </div>
 

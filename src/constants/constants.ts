@@ -1,4 +1,4 @@
-export function generateRandomString (length: number) {
+export function generateRandomString(length: number) {
     const characters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result: string = '';
     const charactersLength: number = characters.length;
@@ -17,3 +17,25 @@ export function formatFileSize(sizeInBytes: number) {
         return (sizeInBytes / (1024 * 1024)).toFixed(2) + " MB";
     }
 }
+
+
+// utils/fileHelpers.ts
+
+export const isImageFile = (url: string) => {
+    const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+    const extension = url?.split('.').pop()?.toLowerCase();
+    return imageExtensions.includes(extension as string);
+};
+
+export const isPDFFile = (url: string) => {
+    const extension = url?.split('.').pop()?.toLowerCase();
+    return extension === 'pdf';
+};
+
+
+export function convertTimestamp(createdAt: { seconds: any; nanoseconds: any; }) {
+    const { seconds, nanoseconds } = createdAt;
+    const date = new Date(seconds * 1000 + nanoseconds / 1000000);
+    return date.toLocaleString(); // Returns the date in the local format
+}
+
