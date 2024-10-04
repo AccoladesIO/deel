@@ -11,6 +11,8 @@ const ContextProvider = ({ children }) => {
     const [error, setError] = useState('');
     const [progress, setProgress] = useState(0);
     const [files, setFiles] = useState([])
+    const [share, setShare] = useState(false)
+    const randhash = generateRandomString(6)
 
     // console.log(files[0]?.data.email)
     const router = useRouter();
@@ -34,14 +36,14 @@ const ContextProvider = ({ children }) => {
         try {
             const docRef = doc(collection(db, 'upload'));  // Create a new document
             await setDoc(docRef, {
-                id: generateRandomString(8),
+                id: randhash,
                 fileName: customData?.file?.name,
                 fileSize: customData?.file.size,
                 fileType: customData?.file.type,
                 userName: customData.name,
                 email: customData?.email,
                 password: "",
-                shortURL: process.env.NEXT_PUBLIC_BASE_URL + generateRandomString(4),
+                shortURL: process.env.NEXT_PUBLIC_BASE_URL + randhash,
                 fileURL: downloadURL, // Store the file's download URL in Firestore
                 createdAt: new Date(), // Optional: Add a timestamp
             });
@@ -173,7 +175,7 @@ const ContextProvider = ({ children }) => {
     const [count, setCount] = useState(2);
 
     return (
-        <Context.Provider value={{ count, setCount, handleRoute, customData, setCustomData, handleSubmit, error, progress, files, handleAddToFavourite, favourites, deleteBookmark }}>
+        <Context.Provider value={{ count, setCount, handleRoute, customData, setCustomData, handleSubmit, error, progress, files, handleAddToFavourite, favourites, deleteBookmark, share, setShare }}>
             {children}
         </Context.Provider>
     );

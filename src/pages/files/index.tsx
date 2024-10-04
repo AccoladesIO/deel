@@ -25,19 +25,19 @@ const Files = () => {
                 (
                     <div className='w-full p-4'>
                         <h1 className='w-full text-center p-3 text-3xl z-10'>Files Uploaded would appear here</h1>
-                        <div className='flex items-center justify-between text-left'>
+                        <div className='grid grid-cols-3 sm:grid-cols-4 items-center justify-center text-left'>
                             <div className='w-full p-2 text-bold'>File name</div>
                             <div className='w-full p-2 text-bold hidden sm:block'>File Type</div>
                             <div className='w-full p-2 text-bold'>File Size</div>
                             <div className='w-full p-2 text-bold'>Star</div>
                         </div>
                         {
-                            filteredFiles.map((file: { id: any; data: { fileName: string; fileType: string; fileSize: number } }, index: any) => {
+                            filteredFiles.map((file: any, index: number) => {
                                 return (
                                     <div key={file.id + index} className='p-2 my-1 w-full' style={{ backgroundColor: index % 2 === 0 ? '#f0f0f0' : '#90caf9' }}>
-                                        <div className='flex items-center justify-between cursor-pointer text-left'>
-                                            <Link passHref href={`/files/${file.id}`} >
-                                                <div className='w-full p-2 text-bold'>
+                                        <div className='grid grid-cols-3 sm:grid-cols-4 items-center justify-center cursor-pointer text-left'>
+                                            <Link passHref href={`/files/${file.data?.id}`} >
+                                                <div className='w-full p-2 text-bold text-blue-500'>
                                                     {file?.data?.fileName?.length > 10 ? `${(file.data.fileName as string).substring(0, 10)}...` : file.data.fileName}
                                                 </div>
                                             </Link>
