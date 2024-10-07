@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiSearch } from 'react-icons/ci';
 import { Logo } from '@/components/icons/Icons';
@@ -22,9 +22,8 @@ const Header = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredItems, setFilteredItems] = useState([]);
     // console.log(filteredItems)
-
     useEffect(() => {
-        if (searchTerm) {
+        if (searchTerm && filteredFiles.length > 0) {
             // Filter items based on search term
             const results = filteredFiles.filter((item: { data: { fileName: string; }; }) =>
                 item.data.fileName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -33,7 +32,8 @@ const Header = () => {
         } else {
             setFilteredItems([]);
         }
-    }, [searchTerm, filteredFiles]);
+    }, [searchTerm]);
+
 
     return (
         <div className='w-full flex items-center justify-between p-4 gap-4'>
