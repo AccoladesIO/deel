@@ -3,7 +3,8 @@ import Link from 'next/link'
 import React from 'react'
 import { BiStar } from 'react-icons/bi';
 import { RxHome, RxFile, RxShare1, RxPerson, RxUpload } from "react-icons/rx";
-import { BiCloudUpload } from "react-icons/bi";
+import { IoCloudUploadOutline } from "react-icons/io5";
+
 
 
 const Bottomnav = ({ active }: { active: string }) => {
@@ -11,25 +12,26 @@ const Bottomnav = ({ active }: { active: string }) => {
         {
             id: 1,
             name: "Home",
-            href: "/home/",
+            href: "/home",
             icon: <RxHome />
         },
         {
             id: 2,
             name: "Files",
-            href: "/files/",
+            href: "/files",
             icon: <RxFile />
         },
         {
             id: 3,
             name: "Upload",
-            href: "/upload/",
-            icon: <BiCloudUpload />
+            href: "/upload",
+            icon: <IoCloudUploadOutline />
+
         },
         {
             id: 4,
             name: "Starred",
-            href: "/starred/",
+            href: "/starred",
             icon: <BiStar />
         },
     ]

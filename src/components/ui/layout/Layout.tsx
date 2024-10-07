@@ -8,7 +8,6 @@ interface LayoutProp {
     active: string;
 }
 const Layout: React.FC<LayoutProp> = ({ children, active }) => {
-
     return (
         <div className='w-full flex relative'>
             <Sidebar active={active} />
