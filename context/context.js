@@ -13,6 +13,7 @@ const ContextProvider = ({ children }) => {
     const [files, setFiles] = useState([])
     const [share, setShare] = useState(false)
     const randhash = generateRandomString(6)
+    const [showModal, setShowModal] = useState(false)
 
     // console.log(files[0]?.data.email)
     const router = useRouter();
@@ -175,7 +176,7 @@ const ContextProvider = ({ children }) => {
     const [count, setCount] = useState(2);
 
     return (
-        <Context.Provider value={{ count, setCount, handleRoute, customData, setCustomData, handleSubmit, error, progress, files, handleAddToFavourite, favourites, deleteBookmark, share, setShare }}>
+        <Context.Provider value={{ count, setCount, handleRoute, customData, setCustomData, handleSubmit, error, progress, files, handleAddToFavourite, favourites, deleteBookmark, share, setShare, showModal, setShowModal }}>
             {children}
         </Context.Provider>
     );

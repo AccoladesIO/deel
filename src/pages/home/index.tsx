@@ -6,12 +6,14 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { Context } from '../../../context/context';
 import { useUser } from '@clerk/nextjs';
+import Modal from '@/components/ui/modal/Modal';
 
 
 const Home = () => {
-    const { files, favourites } = useContext(Context)
+    const { files, favourites, setShowModal, showModal } = useContext(Context)
     const { user } = useUser()
     const filteredFiles = files.filter((file: { data: { email: string | undefined } }) => file.data.email === user?.primaryEmailAddress?.emailAddress)
+    const text = "Create Folder (coming soon)!!!"
     return (
         <Layout active='Home'>
             <div className='overflow-y-scroll w-full h-[90vh]'>
@@ -27,7 +29,7 @@ const Home = () => {
                             <span className='text-2xl font-bold'> {filteredFiles?.length} {' '} </span>  Upload
                         </Link>
                     </div>
-                    <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2'>
+                    <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2' onClick={() => setShowModal(true)}>
                         <CgFolderAdd size={20} />
                         <span className='text-2xl font-bold'></span>  Create
                     </div>
@@ -69,6 +71,13 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            {showModal &&
+                <Modal>
+                    <div className="w-full h-full">
+                        {text}
+                    </div>
+                </Modal>
+            }
         </Layout>
     )
 }

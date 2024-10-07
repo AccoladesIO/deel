@@ -3,6 +3,8 @@ import Link from 'next/link'
 import React from 'react'
 import { BiStar } from 'react-icons/bi';
 import { RxHome, RxFile, RxShare1, RxPerson, RxUpload } from "react-icons/rx";
+import { BiCloudUpload } from "react-icons/bi";
+
 
 const Bottomnav = ({ active }: { active: string }) => {
     const sideLink = [
@@ -22,7 +24,7 @@ const Bottomnav = ({ active }: { active: string }) => {
             id: 3,
             name: "Upload",
             href: "/upload/",
-            icon: <RxUpload />
+            icon: <BiCloudUpload />
         },
         {
             id: 4,
