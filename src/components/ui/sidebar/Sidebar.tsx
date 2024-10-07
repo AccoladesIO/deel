@@ -4,7 +4,7 @@ import React from 'react'
 import { RxHome, RxFile, RxShare1, RxUpload, RxPerson } from "react-icons/rx";
 import { GrUpgrade } from "react-icons/gr";
 import { SignedIn, UserButton } from '@clerk/nextjs';
-import { BiStar } from 'react-icons/bi';
+import { BiCloudUpload, BiStar } from 'react-icons/bi';
 
 
 const Sidebar = ({ active }: { active: string }) => {
@@ -48,7 +48,7 @@ const Sidebar = ({ active }: { active: string }) => {
             </div>
             <div className='w-full flex flex-col items-center justify-end p-4'>
                 <Link href="/upload/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Upload' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}`}>
-                    <RxUpload />
+                    <BiCloudUpload />
                     Upload
                 </Link>
                 <Link href="/upgrade/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Upgrade' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}`}>

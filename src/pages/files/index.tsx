@@ -41,7 +41,7 @@ const Files = () => {
                                                     {file?.data?.fileName?.length > 10 ? `${(file.data.fileName as string).substring(0, 10)}...` : file.data.fileName}
                                                 </div>
                                             </Link>
-                                            <div className='w-full p-2 text-bold hidden sm:block'>{file.data.fileType}</div>
+                                            <div className='w-full p-2 text-bold hidden sm:block'>{file.data.fileType.slice(-15)}</div>
                                             <div className='w-full p-2 text-bold'>{formatFileSize(file.data.fileSize)}</div>
                                             <div className='w-full p-2 text-bold' onClick={() => handleAddToFavourite(file)}>{favourites.some((fav: { id: any }) => fav.id === file.id) ? <BiStar style={{ color: 'blue' }} size={20} /> : 'bookmark'}</div>
                                         </div>

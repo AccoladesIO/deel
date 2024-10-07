@@ -6,6 +6,7 @@ import { useUser } from '@clerk/nextjs';
 import Image from 'next/legacy/image';
 import { useRouter } from 'next/router';
 import { formatFileSize } from '@/constants/constants';
+import { BiCloudUpload } from 'react-icons/bi';
 
 
 const Upload = () => {
@@ -36,9 +37,10 @@ const Upload = () => {
                     (
                         <form onSubmit={handleSubmit} className='w-full'>
                             <label className="flex flex-col items-center justify-center text-sm text-[#0f0f0f] cursor-pointer sm:w-[70%] w-full mx-auto  h-[400px] border border-dashed border-spacing-2 border-blue-500 p-3 outline-none focus:border-[#93bde0] font-light">
-                                <div className="w-24 h-24 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center relative">
+                                {/* <div className="w-24 h-24 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center relative">
                                     <Image className="has-mask h-36 object-center" layout='fill' objectFit='cover' src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image" />
-                                </div>
+                                </div> */}
+                                <BiCloudUpload size={50} style={{ color: 'blue' }} />
                                 <div className="text-blue-700 font-light text-base">
                                     {customData.file ? (
                                         <p className='text-center font-bold text-base'>

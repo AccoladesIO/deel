@@ -99,16 +99,18 @@ const Slug = () => {
                         />
                     )}
                     {fileType !== 'image' && fileType !== 'pdf' ? (
-                        <div className='w-full text-center font-bold'>Can&apos;t preview file</div>
+                        <div className='w-full text-center font-bold h-full relative'>
+                            <Image src={`https://confluence.atlassian.com/confkb/files/715132830/776823133/1/1440747832917/image2015-8-28+15:43:50.png`} alt="Uploaded File" layout='fill' objectFit='cover' />
+                        </div>
                     ) : null}
 
-                    {!fileType && <p>Unsupported file type or file not found.</p>}
+                    {/* {!fileType && <p>Unsupported file type or file not found.</p>} */}
                 </div>
-                <div className="w-full border p-1 border-slate-200">
+                <div className="w-full border p-1 border-slate-200 h-full">
                     <p className='w-full py-2 flex items-center justify-start'><p className='text-black font-bold w-full'>Email Address:</p> <span className='text-left inline-block w-full'>{selectedFile?.data?.email}</span></p>
                     <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File Name:</span> <span className='text-left inline-block w-full'>{selectedFile?.data?.fileName}</span></p>
                     <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File Size:</span> <span className='text-left inline-block w-full'>{formatFileSize(selectedFile?.data?.fileSize)}</span></p>
-                    <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File Type:</span> <span className='text-left inline-block w-full'>{selectedFile?.data?.fileType}</span></p>
+                    <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File Type:</span> <span className='text-left inline-block w-full'>{selectedFile?.data?.fileType.slice(-15)}</span></p>
                     <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>Last Modified:</span> <span className='text-left inline-block w-full'>{convertTimestamp(selectedFile?.data?.createdAt)}</span></p>
                     <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File URL</span> <span className='text-left inline-block w-full'>{selectedFile?.data?.shortURL} <BiCopy onClick={() => handleCopy(selectedFile?.data?.shortURL)} /> </span></p>
                     <p className='w-full flex items-center justify-between gap-2'><button className='w-full text-white bg-blue-600 p-2' onClick={() => setShare(true)}>Share</button> <button onClick={() => deleteItem('upload', selectedFile.data.id)} className='text-red-600 bg-red-200 w-full p-2'>Delete</button></p>
