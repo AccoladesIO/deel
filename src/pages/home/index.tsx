@@ -1,5 +1,5 @@
 import Layout from '@/components/ui/layout/Layout'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { RxStar, RxUpload } from 'react-icons/rx'
 import { CgFolderAdd } from "react-icons/cg";
 import Image from 'next/legacy/image';
@@ -11,6 +11,7 @@ import Modal from '@/components/ui/modal/Modal';
 
 const Home = () => {
     const { files, favourites, setShowModal, showModal } = useContext(Context)
+    const [createModal, setCreateModal] = useState(false)
     const { user } = useUser()
     const filteredFiles = files.filter((file: { data: { email: string | undefined } }) => file.data.email === user?.primaryEmailAddress?.emailAddress)
     const text = "Create Folder (coming soon)!!!"
@@ -29,7 +30,7 @@ const Home = () => {
                             <span className='text-2xl font-bold'> {filteredFiles?.length} {' '} </span>  Upload
                         </Link>
                     </div>
-                    <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2' onClick={() => setShowModal(true)}>
+                    <div className='w-full px-4 py-6 flex flex-col items-start justify-center bg-slate-300 text-black gap-2' onClick={() => setCreateModal(true)}>
                         <CgFolderAdd size={20} />
                         <span className='text-2xl font-bold'></span>  Create
                     </div>
@@ -71,13 +72,13 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {showModal &&
+            {/* {createModal &&
                 <Modal>
                     <div className="w-full h-full">
                         {text}
                     </div>
                 </Modal>
-            }
+            } */}
         </Layout>
     )
 }
