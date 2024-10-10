@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const publicPages: Array<string> = ['/', '/auth/signin', 'auth/signup'];
+  const publicPages: Array<string> = ['/', '/auth/signin', 'auth/signup', '/d/(.*)'];
 
   // Get the pathname
   const { pathname } = useRouter();
