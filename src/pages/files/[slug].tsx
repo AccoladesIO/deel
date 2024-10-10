@@ -109,7 +109,9 @@ const Slug = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 w-full h-[600px] items-center justify-center p-4 gap-4 relative'>
                 <div className="w-full border h-full">
                     {fileType === 'image' && (
-                        <Image src={selectedFile.data.fileURL} alt="Uploaded File" layout='fill' objectFit='cover' />
+                        <div className='w-full h-full relative'>
+                            <Image src={selectedFile.data.fileURL} alt="Uploaded File" layout='fill' objectFit='cover' />
+                        </div>
                     )}
 
                     {fileType === 'pdf' && (
@@ -121,8 +123,8 @@ const Slug = () => {
                         />
                     )}
                     {fileType !== 'image' && fileType !== 'pdf' ? (
-                        <div className='w-full text-center font-bold h-full relative'>
-                            <Image src={`https://confluence.atlassian.com/confkb/files/715132830/776823133/1/1440747832917/image2015-8-28+15:43:50.png`} alt="Uploaded File" layout='fill' objectFit='cover' />
+                        <div className='w-full h-full relative'>
+                            <Image src={`https://claraanalytics.com/wp-content/uploads/2023/01/Contribute.png`} alt="Uploaded File" layout='fill' objectFit='cover' />
                         </div>
                     ) : null}
 
@@ -137,8 +139,8 @@ const Slug = () => {
                     <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File URL</span> <span className='text-left inline-block w-full'>{selectedFile?.data?.shortURL} <BiCopy onClick={() => handleCopy(selectedFile?.data?.shortURL)} /> </span></p>
                     <p className='w-full flex items-center justify-between gap-2 outline-none'><button className='w-full text-white bg-blue-600 p-2 outline-none' onClick={() => setShare(true)}>Share</button> <button onClick={() => deleteItem('upload', selectedFile?.id)} className='text-red-600 bg-red-200 w-full p-2'>Delete</button></p>
                     {share && (
-                        <div className='w-full absolute p-4 rounded-xl h-[150px] flex items-center justify-center flex-col'>
-                            <div className="w-full h-full bg-blue-100 z-10 rounded-t-xl flex items-center  justify-center gap-3">
+                        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-100 p-4 w-full sm:w-[350px] rounded-lg'>
+                            <div className="w-full h-full bg-blue-100 z-10 rounded-t-xl flex items-center  justify-center gap-3 p-4">
                                 <FacebookShareButton url={url}>
                                     <FacebookIcon size={32} round />
                                 </FacebookShareButton>
@@ -152,7 +154,7 @@ const Slug = () => {
                                     <WhatsappIcon size={32} round />
                                 </WhatsappShareButton>
                             </div>
-                            <button onClick={() => setShare(false)} className="ml-auto text-red-500 w-full bg-red-100 p-2 rounded-b-lg outline-none">Close</button>
+                            <button onClick={() => setShare(false)} className="ml-auto text-red-500 w-full bg-red-100 p-2 rounded-b-lg outline-none font-bold">Close</button>
                         </div>
                         // <div className='w-full h-[400px] bg-red-600'>
 

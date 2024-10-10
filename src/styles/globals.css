@@ -7,6 +7,7 @@
 html {
   scroll-behavior: smooth !important;
   font-family: 'Ysabeau', sans-serif;
+  background: rgb(248, 248, 255);
 }
 
 .custom-img {
