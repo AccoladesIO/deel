@@ -1,7 +1,7 @@
 import { collection, query, where, getDocs, getFirestore } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { app } from '../../db/firebase';
+import { app } from '../../../db/firebase';
 
 
 export default function Redirect() {
