@@ -14,6 +14,7 @@ const ContextProvider = ({ children }) => {
     const [share, setShare] = useState(false)
     const randhash = generateRandomString(6)
     const [showModal, setShowModal] = useState(false)
+    console.log(share)
 
     // console.log(files[0]?.data.email)
     const router = useRouter();
@@ -167,8 +168,7 @@ const ContextProvider = ({ children }) => {
         bookmarks.splice(index, 1);
         localStorage.setItem('favourites', JSON.stringify(bookmarks));
         setFavourites(bookmarks);
-        alert('File has been removed from bookmark')
-
+        // alert('File has been removed from bookmark')
     };
 
 
