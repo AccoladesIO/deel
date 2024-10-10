@@ -59,8 +59,8 @@ const Slug = () => {
             }
         }
     }, [selectedFile]);
-    console.log(selectedFile?.data)
-    console.log(fileType)
+    // console.log(selectedFile?.data)
+    // console.log(fileType)
 
     const handleRoute = () => {
         router.back();
