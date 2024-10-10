@@ -8,13 +8,14 @@ import { generateRandomString } from "@/constants/constants";
 const Context = createContext();
 const ContextProvider = ({ children }) => {
 
+
     const [error, setError] = useState('');
     const [progress, setProgress] = useState(0);
     const [files, setFiles] = useState([])
     const [share, setShare] = useState(false)
     const randhash = generateRandomString(6)
     const [showModal, setShowModal] = useState(false)
-    console.log(share)
+    // console.log(share)
 
     // console.log(files[0]?.data.email)
     const router = useRouter();
