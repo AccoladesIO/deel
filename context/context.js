@@ -46,7 +46,7 @@ const ContextProvider = ({ children }) => {
                 userName: customData.name,
                 email: customData?.email,
                 password: "",
-                shortURL: process.env.NEXT_PUBLIC_BASE_URL + 'd/' + randhash,
+                shortURL: `https://deel-blue.vercel.app/d/${randhash}`,
                 fileURL: downloadURL, // Store the file's download URL in Firestore
                 createdAt: new Date(), // Optional: Add a timestamp
             });
