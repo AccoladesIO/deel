@@ -6,13 +6,13 @@ import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  const publicPages: Array<string> = ['/', '/auth/signin', 'auth/signup', '/d/(.*)'];
+  const publicPages: Array<string> = ['/', '/auth/signin', 'auth/signup',];
 
   // Get the pathname
   const { pathname } = useRouter();
 
   // Check if the current route matches a public page
-  const isPublicPage = publicPages.includes(pathname);
+  const isPublicPage = publicPages.includes(pathname) || /^\/d\/.*$/.test(pathname);
   return (
     <ContextProvider>
       <ClerkProvider {...pageProps}>

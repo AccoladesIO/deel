@@ -71,8 +71,8 @@ const ContextProvider = ({ children }) => {
             return; // Exit early if the validation fails
         }
 
-        if (customData.file.size >= 2100000) {
-            setError('File must not exceed 2MB');
+        if (customData.file.size >= 21000000) {
+            setError('File must not exceed 20MB');
             setTimeout(() => {
                 setError('');
             }, 3000);
