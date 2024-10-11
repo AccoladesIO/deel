@@ -31,7 +31,7 @@ const Redirect = () => {
     // console.log()
     return (
         <div className='w-full items-center justify-center h-screen flex'>
-            <div className='w-full p-4 rounded-lg shadow-blue-500 flex items-center justify-between  gap-3'>
+            <div className='w-full p-4 rounded-lg shadow-blue-500 flex items-center justify-between  gap-3 shadow-md' >
                 <div className='w-[100px] h-[100px] relative'>
                     <Image src={`https://claraanalytics.com/wp-content/uploads/2023/01/Contribute.png`} alt={selectedFile[0]?.data?.fileName} layout='fill' objectFit='cover' />
                 </div>
