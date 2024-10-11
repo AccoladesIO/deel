@@ -57,9 +57,9 @@ const Upload = () => {
                                         </p>
                                     ) : (
                                         <p>
-                                            Click to upload{" "}
+                                            Browse Files{" "}
                                             <span className="text-[#0f0f0f] font-semibold">
-                                                or drag and drop (Max size = 2MB)
+                                                or drag and drop (Max size = 20MB)
                                             </span>
                                         </p>
                                     )}
@@ -95,7 +95,7 @@ const Upload = () => {
                                         type="submit"
                                         value="Upload"
                                         disabled={files}
-                                        className="px-[16px] outline-none border border-blue-500 disabled:bg-slate-400 disabled:text-slate-200 disabled:border-none py-3 text-blue-700 hover:text-white ease-in-out duration-500 transition-all rounded-lg font-bold"
+                                        className="px-[16px] outline-none border border-blue-500 disabled:bg-slate-400 disabled:text-slate-200 disabled:border-none py-3 bg-blue-700 text-white  ease-in-out duration-500 transition-all rounded-lg font-bold"
                                     />
                                 </div>
 
