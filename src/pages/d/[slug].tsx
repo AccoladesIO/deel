@@ -11,6 +11,7 @@ const Redirect = () => {
     const router = useRouter();
     const { slug } = router.query;
     const selectedFile = files.filter((file: { data: { id: string | string[] | undefined } }) => file.data.id === slug);
+    console.log(selectedFile)
     const storage = getStorage(app);
 
     const handleDownload = async (fileUrl: string | undefined, fileName: string) => {
