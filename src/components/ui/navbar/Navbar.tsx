@@ -21,7 +21,7 @@ const Navbar = () => {
 
             <div className='w-full flex justify-end'>
                 <SignedOut>
-                    <button className='px-[16px] outline-none border border-blue-500 py-3 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' >
+                    <button className='px-[16px] outline-none border border-blue-500 py-2 hover:bg-blue-700 text-blue-700 hover:text-white ease-in-out duration-500 transition-all' >
                         <SignInButton />
                     </button>
                 </SignedOut>
