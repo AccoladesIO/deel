@@ -17,8 +17,8 @@ const Hero = () => {
                 <Image layout='fill' objectFit='cover' src="https://cdn.dribbble.com/users/237814/screenshots/5274233/media/79929813d2743fed26d8e2e447412e89.gif" alt='' />
             </div>
             <div className='p-5 text-blue-700 z-[2] max-w-[800px]'>
-                <div className="relative w-full pb-full sm:h-[300px] h-[150px]">
-                    <iframe src="https://giphy.com/embed/3WuUfTjDqp7ZoDc08P" className="absolute w-full h-full" frameBorder="0" allowFullScreen></iframe>
+                <div className="relative w-[150px] h-[150px] mx-auto">
+                    <img src="https://cdn.dribbble.com/users/2760451/screenshots/5667639/file-transfer.gif" className="absolute w-full h-full" />
                 </div>
                 <h2 className='text-5xl sm:text-7xl font-bold'>Simplify Your File Sharing — Anytime, Anywhere
                 </h2>
@@ -34,7 +34,7 @@ const Hero = () => {
                     </button>
                 </SignedIn>
             </div>
-        </div>
+        </div >
     )
 }
 
