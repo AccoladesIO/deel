@@ -11,6 +11,7 @@ const Redirect = () => {
     const router = useRouter();
     const { slug } = router.query;
     const selectedFile = files.filter((file: { data: { id: string | string[] | undefined } }) => file.data.id === slug);
+    console.log(selectedFile)
     const storage = getStorage(app);
 
     const handleDownload = async (fileUrl: string | undefined, fileName: string) => {
@@ -50,7 +51,7 @@ const Redirect = () => {
                     <p className='w-full text-sm text-blue-600'>{selectedFile[0]?.data?.fileName}</p>
                     <p className='w-full text-sm text-blue-600'>By {selectedFile[0]?.data?.userName} <br /></p>
                 </div>
-                <button className='w-15 h-15 p-2 bg-blue-600 text-white rounded-full' onClick={() => handleDownload(selectedFile[0]?.data?.fileUrl, selectedFile[0]?.data?.fileName)}>
+                <button className='w-15 h-15 p-2 bg-blue-600 text-white rounded-full' onClick={() => handleDownload(selectedFile[0]?.data?.fileURL, selectedFile[0]?.data?.fileName)}>
                     <BiDownload size={20} />
                 </button>
             </div>
