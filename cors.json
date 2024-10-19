@@ -1,0 +1,16 @@
+[
+    {
+        "origin": [
+            "https://deel-blue.vercel.app"
+        ],
+        "method": [
+            "GET",
+            "POST",
+            "DELETE"
+        ],
+        "responseHeader": [
+            "Content-Type"
+        ],
+        "maxAgeSeconds": 3600
+    }
+]
