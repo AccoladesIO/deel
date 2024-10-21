@@ -7,8 +7,6 @@ import { generateRandomString } from "@/constants/constants";
 
 const Context = createContext();
 const ContextProvider = ({ children }) => {
-
-
     const [error, setError] = useState('');
     const [progress, setProgress] = useState(0);
     const [files, setFiles] = useState([])
@@ -16,7 +14,6 @@ const ContextProvider = ({ children }) => {
     const randhash = generateRandomString(6)
     const [showModal, setShowModal] = useState(false)
     // console.log(share)
-
     // console.log(files[0]?.data.email)
     const router = useRouter();
 
@@ -78,7 +75,6 @@ const ContextProvider = ({ children }) => {
             }, 3000);
             return; // Exit early if the validation fails
         }
-
         try {
             // console.log("Data is ready:", customData);
 
@@ -91,6 +87,10 @@ const ContextProvider = ({ children }) => {
                 if (progress === 100) {
                     setTimeout(() => {
                         setProgress(0);
+                        router.replace('/files').then(() => {
+                            // Once the navigation is complete, reload the new page
+                            router.reload();
+                        });
                     }, 3000);
                 }
                 setProgress(progress);
