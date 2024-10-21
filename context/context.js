@@ -87,10 +87,6 @@ const ContextProvider = ({ children }) => {
                 if (progress === 100) {
                     setTimeout(() => {
                         setProgress(0);
-                        router.replace('/files').then(() => {
-                            // Once the navigation is complete, reload the new page
-                            router.reload();
-                        });
                     }, 3000);
                 }
                 setProgress(progress);
@@ -117,6 +113,10 @@ const ContextProvider = ({ children }) => {
                 name: "",
                 email: '',
                 file: '',
+            });
+            router.replace('/files').then(() => {
+                // Once the navigation is complete, reload the new page
+                router.reload();
             });
         }
     };
