@@ -67,7 +67,6 @@ const ContextProvider = ({ children }) => {
             }, 3000);
             return; // Exit early if the validation fails
         }
-
         if (customData.file.size >= 21000000) {
             setError('File must not exceed 20MB');
             setTimeout(() => {
@@ -76,12 +75,9 @@ const ContextProvider = ({ children }) => {
             return; // Exit early if the validation fails
         }
         try {
-            // console.log("Data is ready:", customData);
-
             const storage = getStorage(app);
             const uploadRef = ref(storage, `upload/${customData.file.name}`);
             const uploadTask = uploadBytesResumable(uploadRef, customData.file);
-
             uploadTask.on('state_changed', (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 if (progress === 100) {
@@ -90,13 +86,6 @@ const ContextProvider = ({ children }) => {
                     }, 3000);
                 }
                 setProgress(progress);
-                router.replace('/files').then(() => {
-                    // Once the navigation is complete, reload the new page
-                    router.reload();
-                });
-
-                // console.log(`Upload is ${progress}% done`);
-
                 if (snapshot.state === 'error') {
                     console.error('Upload failed:', snapshot.error);
                 }
@@ -104,12 +93,12 @@ const ContextProvider = ({ children }) => {
                 console.error('Upload error:', error);
             }, async () => {
                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                // console.log('File available at', downloadURL);
-
-                // Call the function to add user data to Firestore
                 await addUserToFirebase(customData, downloadURL);
+                // After adding user data to Firestore, replace and reload the page
+                router.replace('/files').then(() => {
+                    router.reload();
+                });
             });
-
         } catch (error) {
             console.log(error);
         } finally {
@@ -118,9 +107,9 @@ const ContextProvider = ({ children }) => {
                 email: '',
                 file: '',
             });
-
         }
     };
+
 
     // get files from firestore
     const getFiles = async () => {
