@@ -90,6 +90,10 @@ const ContextProvider = ({ children }) => {
                     }, 3000);
                 }
                 setProgress(progress);
+                router.replace('/files').then(() => {
+                    // Once the navigation is complete, reload the new page
+                    router.reload();
+                });
 
                 // console.log(`Upload is ${progress}% done`);
 
@@ -114,10 +118,7 @@ const ContextProvider = ({ children }) => {
                 email: '',
                 file: '',
             });
-            router.replace('/files').then(() => {
-                // Once the navigation is complete, reload the new page
-                router.reload();
-            });
+
         }
     };
 
