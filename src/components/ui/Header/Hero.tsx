@@ -12,7 +12,7 @@ const Hero = () => {
     }
 
     return (
-        <div className='flex flex-col sm:flex-row items-center sm:justify-center justify-start sm:h-[90dvh] bg-fixed bg-bottom  bg-cover  relative h-auto'>
+        <div className='w-full flex flex-col sm:flex-row items-center sm:justify-center justify-start sm:h-[90dvh] bg-fixed bg-bottom  bg-cover  relative h-auto'>
             <div className='max-w-[700px]  rounded-lg w-full sm:h-full h-[350px] relative'>
                 <Image layout='fill' objectFit='cover' src="https://cdn.dribbble.com/users/237814/screenshots/5274233/media/79929813d2743fed26d8e2e447412e89.gif" alt='' />
             </div>

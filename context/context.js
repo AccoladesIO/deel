@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { app } from '../db/firebase';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, setDoc, doc, getDocs, deleteDoc } from "firebase/firestore"; // Updated Firestore import
+import { getFirestore, collection, setDoc, doc, getDocs,} from "firebase/firestore"; 
 import { generateRandomString } from "@/constants/constants";
 
 const Context = createContext();
@@ -13,12 +13,11 @@ const ContextProvider = ({ children }) => {
     const [share, setShare] = useState(false)
     const randhash = generateRandomString(6)
     const [showModal, setShowModal] = useState(false)
-    // console.log(share)
-    // console.log(files[0]?.data.email)
+   
     const router = useRouter();
 
-    // Initialize Firestore
-    const db = getFirestore(app); // Use Firestore instead of Realtime Database
+  
+    const db = getFirestore(app); 
 
     const handleRoute = () => {
         router.push('/auth/');
@@ -31,10 +30,9 @@ const ContextProvider = ({ children }) => {
         file: "",
     });
 
-    // Function to add user data to Firestore
     async function addUserToFirebase (customData, downloadURL) {
         try {
-            const docRef = doc(collection(db, 'upload'));  // Create a new document
+            const docRef = doc(collection(db, 'upload'));  
             await setDoc(docRef, {
                 id: randhash,
                 fileName: customData?.file?.name,
@@ -44,10 +42,10 @@ const ContextProvider = ({ children }) => {
                 email: customData?.email,
                 password: "",
                 shortURL: `https://deel-blue.vercel.app/d/${randhash}`,
-                fileURL: downloadURL, // Store the file's download URL in Firestore
-                createdAt: new Date(), // Optional: Add a timestamp
+                fileURL: downloadURL, 
+                createdAt: new Date(), 
             });
-            // console.log("Document successfully written!");
+            
         } catch (err) {
             console.log(err);
         } finally {
@@ -65,14 +63,14 @@ const ContextProvider = ({ children }) => {
             setTimeout(() => {
                 setError('');
             }, 3000);
-            return; // Exit early if the validation fails
+            return; 
         }
         if (customData.file.size >= 21000000) {
             setError('File must not exceed 20MB');
             setTimeout(() => {
                 setError('');
             }, 3000);
-            return; // Exit early if the validation fails
+            return; 
         }
         try {
             const storage = getStorage(app);
@@ -131,7 +129,6 @@ const ContextProvider = ({ children }) => {
     }, [])
 
     // add post to favourite
-
     const [favourites, setFavourites] = useState([]);
 
     useEffect(() => {

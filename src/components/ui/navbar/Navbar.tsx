@@ -13,7 +13,7 @@ const Navbar = () => {
         route.push('/auth/signin')
     )
     return (
-        <nav className='w-full flex items-center justify-between p-3 shadow-md'>
+        <nav className='w-full flex items-center justify-between p-3 border-b border-b-blue-300'>
             <div className='flex items-center justify-start'>
                 <Logo />
                 <h1 className='text-[16px] text-[#1d4ed8]'>deel</h1>
