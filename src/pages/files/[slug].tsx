@@ -36,7 +36,7 @@ const Slug = () => {
             await navigator.clipboard.writeText(textToCopy);
             setIsCopied(true);
             alert('File URL copied to clipboard')
-            setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
+            setTimeout(() => setIsCopied(false), 2000); 
         } catch (err) {
             console.error('Failed to copy text:', err);
         }
@@ -55,12 +55,11 @@ const Slug = () => {
             } else if (isPDFFile(selectedFile.data.fileName)) {
                 setFileType('pdf');
             } else {
-                setFileType(null); // Handle unsupported file types
+                setFileType(null); 
             }
         }
     }, [selectedFile]);
-    // console.log(selectedFile?.data)
-    // console.log(fileType)
+  
 
     const handleRoute = () => {
         router.back();
@@ -77,9 +76,7 @@ const Slug = () => {
             const docRef = doc(db, collectionName, docId);
             await deleteDoc(docRef);
             alert('Document deleted successfully');
-            // deleteBookmark(docId); // Assuming this removes it from local state/context
             router.replace('/files').then(() => {
-                // Once the navigation is complete, reload the new page
                 router.reload();
             });
         } catch (error) {
@@ -139,23 +136,34 @@ const Slug = () => {
                     <p className='w-full py-2 flex items-center justify-start'><span className='text-black font-bold w-full'>File URL</span> <span className='text-left inline-block w-full'>{selectedFile?.data?.shortURL} <BiCopy onClick={() => handleCopy(selectedFile?.data?.shortURL)} /> </span></p>
                     <p className='w-full flex items-center justify-between gap-2 outline-none'><button className='w-full text-white bg-blue-600 p-2 outline-none' onClick={() => setShare(true)}>Share</button> <button onClick={() => deleteItem('upload', selectedFile?.id)} className='text-red-600 bg-red-200 w-full p-2'>Delete</button></p>
                     {share && (
-                        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-100 p-4 w-full sm:w-[350px] rounded-lg'>
-                            <div className="w-full h-full bg-blue-100 z-10 rounded-t-xl flex items-center  justify-center gap-3 p-4">
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                bg-white p-5 w-full sm:w-[350px] rounded-xl shadow-xl border border-gray-300">
+                            {/* Share Buttons */}
+                            <div className="flex items-center justify-center gap-5 p-4">
                                 <FacebookShareButton url={url}>
-                                    <FacebookIcon size={32} round />
+                                    <FacebookIcon size={40} round className="hover:scale-110 transition-transform duration-200" />
                                 </FacebookShareButton>
                                 <TwitterShareButton url={url}>
-                                    <TwitterIcon size={32} round />
+                                    <TwitterIcon size={40} round className="hover:scale-110 transition-transform duration-200" />
                                 </TwitterShareButton>
                                 <LinkedinShareButton url={url}>
-                                    <LinkedinIcon size={32} round />
+                                    <LinkedinIcon size={40} round className="hover:scale-110 transition-transform duration-200" />
                                 </LinkedinShareButton>
                                 <WhatsappShareButton url={url}>
-                                    <WhatsappIcon size={32} round />
+                                    <WhatsappIcon size={40} round className="hover:scale-110 transition-transform duration-200" />
                                 </WhatsappShareButton>
                             </div>
-                            <button onClick={() => setShare(false)} className="ml-auto text-red-500 w-full bg-red-100 p-2 rounded-b-lg outline-none font-bold">Close</button>
+
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setShare(false)}
+                                className="w-full bg-red-500 text-white p-3 rounded-b-lg font-semibold 
+                   text-center hover:bg-red-600 transition duration-200"
+                            >
+                                Close
+                            </button>
                         </div>
+
                         // <div className='w-full h-[400px] bg-red-600'>
 
                         // </div>

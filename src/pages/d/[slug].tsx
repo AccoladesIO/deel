@@ -3,8 +3,8 @@ import { Context } from '../../../context/context';
 import { useRouter } from 'next/router';
 import Image from 'next/legacy/image';
 import { BiDownload } from 'react-icons/bi';
-import { getDownloadURL, ref, getStorage } from "firebase/storage"; // Ensure Firebase Storage is set up
-import { app } from '../../../db/firebase'; // Ensure the correct path to your firebase config
+import { getDownloadURL, ref, getStorage } from "firebase/storage";
+import { app } from '../../../db/firebase';
 
 const Redirect = () => {
     const { files } = useContext(Context);
@@ -38,13 +38,16 @@ const Redirect = () => {
     };
 
     if (!selectedFile.length) {
-        return <div>File not found</div>; // Handling case where file is not found
+        setTimeout(() => {
+            return <div className='w-full h-screen flex items-center justify-center text-2xl text-black'>File not found</div>;
+        }, 3000);
+        return <div className='w-full h-screen flex items-center justify-center text-2xl text-black'>Checking for file...</div>;
     }
 
     return (
         <div className='w-full items-center justify-center h-screen flex'>
-            <div className='w-[300px] mx-auto p-4 rounded-lg shadow-blue-500 flex items-center justify-between gap-3 shadow-sm'>
-                <div className='w-[100px] h-[100px] relative'>
+            <div className='w-[300px] mx-auto p-4 rounded-lg shadow-blue-500 flex items-center justify-between gap-3 shadow-sm h-[300px]'>
+                <div className='w-[100px] h-[200px] relative'>
                     <Image src={`https://claraanalytics.com/wp-content/uploads/2023/01/Contribute.png`} alt={selectedFile[0]?.data?.fileName} layout='fill' objectFit='cover' />
                 </div>
                 <div className='w-full text-left text-base flex flex-col items-start justify-start font-bold gap-3 text-black'>

@@ -58,11 +58,11 @@ const Sidebar = ({ active }: { active: string }) => {
                 ))}
             </div>
             <div className='w-full flex flex-col items-center justify-end p-4'>
-                <Link href="/upload/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Upload' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}`}>
+                <Link href="/upload/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Upload' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}  hover:bg-slate-300`}>
                     <IoCloudUploadOutline />
                     Upload
                 </Link>
-                <Link href="/upgrade/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Upgrade' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}`}>
+                <Link href="/upgrade/" className={`w-full flex items-center justify-start gap-2 p-3 ${active === 'Upgrade' && 'bg-blue-200 text-blue-800 font-bold border-r-4 border-r-blue-800'}  hover:bg-slate-300`}>
                     <GrUpgrade />
                     Upgrade
                 </Link>
